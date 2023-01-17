@@ -2,15 +2,16 @@ import ArgumentParser
 import ShellOut
 
 @main
-struct SwiftBuild: ParsableCommand {
+struct SwiftTest: ParsableCommand {
     static var configuration: CommandConfiguration {
         CommandConfiguration(
-            commandName: "SwiftTest"
+            commandName: "SwiftTest",
+            abstract: "Proxy to the `swift test` command, executing in a specific directory."
         )
     }
     
-    @Option var verbose: Bool = false
-    @Option var githubWorkspace: String
+    @Option(help: "Increase verbosity to include informational output.") var verbose: Bool = false
+    @Option(help: "Path at which the command will be executed.") var workingDirectory: String
     
     func run() throws {
         var arguments: [String] = []
@@ -19,7 +20,7 @@ struct SwiftBuild: ParsableCommand {
             arguments.append("--verbose")
         }
         
-        let shellout = try shellOut(to: "swift test", arguments: arguments, at: githubWorkspace)
-        print(shellout)
+        let output = try shellOut(to: "swift test", arguments: arguments, at: workingDirectory)
+        print(output)
     }
 }

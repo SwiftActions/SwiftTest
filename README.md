@@ -1,4 +1,5 @@
 # SwiftTest
+
 GitHub Action that executes unit tests of a Swift project.
 
 <a href="https://swift.org" rel="nofollow">
@@ -13,7 +14,7 @@ Actions are referenced with the `uses` syntax. For example:
 steps:
   - uses: actions/checkout@v3
   - name: Build Swift Project
-    uses: SwiftActions/SwiftTest@v1
+    uses: SwiftActions/SwiftTest@main
     with:
       target: "SwiftTest"
       verbose: true
@@ -29,10 +30,10 @@ steps:
 
 The action uses _Swift_ to build _Swift_. Some third party libraries are used as part of the process:
 
-| Library                                                                 | Usage                                                                                                                         |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Library                                                                 | Usage                                                                                                          |
+| ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | [swift-argument-parser](https://github.com/apple/swift-argument-parser) | Parses parameters provided to the action in order to determine the full shell command that should be executed. |
-| [ShellOut](https://github.com/JohnSundell/ShellOut)                     | Utility to execute the command parsed using the shell.                                                                        |
+| [ShellOut](https://github.com/JohnSundell/ShellOut)                     | Utility to execute the command parsed using the shell.                                                         |
 
 ## Contributions
 

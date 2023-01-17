@@ -19,5 +19,5 @@ runs:
         cd ${{ github.action_path }}
         swift run SwiftTest \
           --verbose ${{ inputs.verbose }} \
-          --github-workspace ${{ github.workspace }}
+          --working-directory ${{ github.workspace }}
       shell: bash

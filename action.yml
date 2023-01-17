@@ -1,0 +1,23 @@
+name: 'SwiftTest'
+author: 'SwiftActions'
+description: 'Executes unit tests of a Swift project.'
+
+branding:
+  icon: 'terminal'
+  color: 'blue'
+
+inputs:
+  verbose:
+    description: "Increase verbosity to include informational output"
+    required: false
+    default: false
+
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        cd ${{ github.action_path }}
+        swift run SwiftTest \
+          --verbose ${{ inputs.verbose }} \
+          --github-workspace ${{ github.workspace }}
+      shell: bash
